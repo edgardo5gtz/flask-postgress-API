@@ -1,0 +1,22 @@
+version: '3.2'
+services: 
+    postgres_db:
+        image: postgres
+        restart: always
+        env_file:
+            - db_secrets.env
+        ports:
+            - 5431:5432
+        volumes:
+            - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+            #- ./postgres-data:/var/lib/postgresql/data    Maybe used later
+    flask_app:
+        image: edgardo5gtz/flask_init
+        ports: 
+            - 5000:5000
+        volumes:
+            - ./src:/src
+
+
+
+            
