@@ -102,3 +102,4 @@ ENV/
 
 # env files
 *.env
+Dockerfile
